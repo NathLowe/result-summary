@@ -1,0 +1,182 @@
+*{
+    box-sizing: border-box;
+    --card-shadow: hsl(221, 100%, 96%);
+    --card-bg-bottom: hsl(252, 100%, 67%);
+    --card-bg-top: hsl(241, 81%, 54%);
+    --result-bg-bottom: hsla(256, 72%, 46%, 1);
+    --result-bg-top: hsla(241, 72%, 46%, 0);
+
+    --text-red: hsl(0, 100%, 67%);
+    --bg-red: hsla(0, 100%, 67%,5%);
+    --text-yellow: hsl(39, 100%, 56%);
+    --bg-yellow: hsla(39, 100%, 56%,5%);
+    --text-teal: hsl(166, 100%, 37%);
+    --bg-teal: hsla(166, 100%, 37%,5%);
+    --text-blue: hsl(234, 85%, 45%);
+    --bg-blue: hsla(234, 85%, 45%,5%);
+
+    --button-bg: hsl(224, 30%, 27%);
+    --muted:hsl(241, 100%, 89%);
+
+    --border-radius: 2rem;
+}
+
+@font-face {
+    font-family: 'HankenGrotesk';
+    src: url("./assets/fonts/HankenGrotesk.ttf");
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    font-size: 18px;
+    color: white;
+    font-family: 'HankenGrotesk';
+}
+
+main{
+    max-width: 600px;
+    height: 100%;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: 1px 1px 35px var(--card-shadow), -1px 1px 35px var(--card-shadow);
+}
+
+#result{
+    width: 100%;
+    height: fit-content;
+    border-radius: var(--border-radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--card-bg-bottom), var(--card-bg-top));
+}
+
+#result h2 {
+    color: var(--muted);
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+#result .result-container{
+    max-width: calc(6em + 3rem);
+    aspect-ratio: 1;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100%;
+    background: linear-gradient(to bottom, var(--result-bg-bottom) , var(--result-bg-top));
+}
+
+#result .result-container span {
+    display: block;
+}
+#result .result-container span.result {
+    font-size: 3rem;
+    font-weight: 800;
+}
+#result .result-container span.total {
+    color: var(--muted);
+    opacity: 0.8;
+}
+#result .appreciation {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    text-align: center;
+}
+#result .annotation {
+    margin-bottom: 2rem;
+    color: var(--muted);
+    text-align: center;
+}
+
+#summary {
+    padding: 1.5rem;
+    height: fit-content;
+}
+#summary h1 {
+    color: var(--button-bg);
+    margin: 0 0 1.5rem;
+}
+#summary .criteria {
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+#summary .criteria .icon {
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+}
+#summary .criteria .score {
+    color: var(--muted);
+    margin-left: auto;
+}
+#summary .criteria .score .note {
+    color: var(--button-bg);
+}
+#summary .criteria.reaction {
+    background-color: var(--bg-red);
+    color: var(--text-red);
+}
+#summary .criteria.memory {
+    background-color: var(--bg-yellow);
+    color: var(--text-yellow);
+}
+#summary .criteria.verbal {
+    background-color: var(--bg-teal);
+    color: var(--text-teal);
+}
+#summary .criteria.visual {
+    background-color: var(--bg-blue);
+    color: var(--text-blue);
+}
+#summary button {
+    height: fit-content;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.15rem;
+    color: white;
+    border-radius: 3rem;
+    background-color: var(--button-bg);
+    text-align: center;
+    cursor: pointer;
+}
+
+@media screen and (min-width:475px) {
+    *{
+        --border-radius: 1.25rem;
+    }
+    main{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .card{
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #result{
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+        height: 100%;
+    }
+}
