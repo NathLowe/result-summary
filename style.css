@@ -19,6 +19,7 @@
     --muted:hsl(241, 100%, 89%);
 
     --border-radius: 2rem;
+    --card-gradient: linear-gradient(to bottom, var(--card-bg-bottom), var(--card-bg-top));
 }
 
 @font-face {
@@ -57,7 +58,7 @@ main{
     border-top-right-radius: 0;
     padding: 0.5rem 2rem;
     text-align: center;
-    background: linear-gradient(to bottom, var(--card-bg-bottom), var(--card-bg-top));
+    background: var(--card-gradient);
 }
 
 #result h2 {
@@ -155,10 +156,14 @@ main{
     font-size: 1.15rem;
     color: white;
     border-radius: 3rem;
-    background-color: var(--button-bg);
+    background: var(--button-bg);
     text-align: center;
     border: none;
     cursor: pointer;
+    transition: all 0.5s ease;
+}
+#summary button:hover {
+    background-image: var(--card-gradient);
 }
 
 @media screen and (min-width:475px) {
