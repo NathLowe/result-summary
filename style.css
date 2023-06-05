@@ -157,6 +157,7 @@ main{
     border-radius: 3rem;
     background-color: var(--button-bg);
     text-align: center;
+    border: none;
     cursor: pointer;
 }
 
